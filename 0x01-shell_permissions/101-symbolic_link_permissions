@@ -1,2 +1,2 @@
 #!/bin/bash
-chown -H betty:holberton _hello
+chown -RH betty:holberton _hello
