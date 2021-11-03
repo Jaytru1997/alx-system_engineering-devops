@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #This script is displaying "Best School" 10 times
 s="Best School"
-for i in {0..9}
+i=0
+while [ $i -lt 10 ]
 do
 	echo "$s"
+	i=$(expr $i + 1)
 done
