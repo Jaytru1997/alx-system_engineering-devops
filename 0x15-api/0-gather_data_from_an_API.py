@@ -11,15 +11,12 @@ import sys
 if __name__ == '__main__':
     url = "https://jsonplaceholder.typicode.com/"
     employee_id = int(sys.argv[1])
-    # employee_id = int(input('Enter Employee ID: '))
 
     todo = requests.get("{}todos?userId={}".format(url, employee_id))
     user = requests.get("{}users?id={}".format(url, employee_id))
 
     todo_lst = todo.json()
     EMPLOYEE_NAME = user.json()[0].get("name")
-
-    # print(todo_lst, name)
 
     str_format = "Employee {} is done with tasks({}/{}):\n"
     todo_str = ""
