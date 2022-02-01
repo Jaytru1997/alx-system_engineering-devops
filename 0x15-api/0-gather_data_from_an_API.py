@@ -17,16 +17,17 @@ if __name__ == '__main__':
     user = requests.get("{}users?id={}".format(url, employee_id))
 
     todo_lst = todo.json()
-    name = user.json()[0].get("name")
+    EMPLOYEE_NAME = user.json()[0].get("name")
 
     # print(todo_lst, name)
 
     str_format = "Employee {} is done with tasks({}/{}):\n"
     todo_str = ""
-    complete = 0
+    total = len(todo_lst)
+    done = 0
     for todo in todo_lst:
         if todo.get("completed"):
-            complete += 1
+            done += 1
             todo_str += "\t " + todo.get("title") + "\n"
 
-    print(str_format.format(name, complete, len(todo_lst)) + todo_str[:-1])
+    print(str_format.format(EMPLOYEE_NAME, done, total) + todo_str[:-1])
